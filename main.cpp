@@ -7,9 +7,9 @@
 
 using namespace std;
 //maximum size of all arrays: 100000
-const int MAX = 100;
+const int MAX = 1000;
 //highest value allowed per random int in array: 30000
-const int RAND = 100;
+const int RAND = 300;
 
 typedef int (*fP)(int []);
 int bubbleSort(int []);
@@ -22,7 +22,7 @@ int main(){
   int list_II[MAX] = {0};
   createArrays(list_I,list_II);
   functionP = &bubbleSort;
-  *list_II = (*functionP)(list_I);
+  *list_I = (*functionP)(list_I);
 
 
 
