@@ -1,24 +1,28 @@
-#include <iostream>        
+#include <iostream>
+#include <stdlib.h>
+#include <ctime>        
 #ifdef _WIN32 
 #include <windows.h>
 #endif
 
 using namespace std;
-const int MAX = 25;
+//maximum size of all arrays: 100000
+const int MAX = 100;
+//highest value allowed per random int in array: 30000
+const int RAND = 100;
 
 typedef int (*fP)(int []);
 int bubbleSort(int []);
+void createArrays(int [],int []);
 
 int main(){
-
-  
   fP functionP;
   
-  int test[MAX] = {1,2,4,5,6,7,8,6,4,4,3,2,9,88,44,33};
-   
+  int list_I[MAX] = {0};
+  int list_II[MAX] = {0};
+  createArrays(list_I,list_II);
   functionP = &bubbleSort;
-  
-  *test = (*functionP)(test);
+  *list_II = (*functionP)(list_I);
 
 
 
@@ -27,24 +31,43 @@ int main(){
 #endif
   return 0;
 }
-int bubbleSort(int sortME[]){
-bool notSorted = false;
-  int current = 0, index = 1, swap = 0;
-  int tail = 9;
+int bubbleSort(int list[]){
+  bool exchange = true;
+  int index = 0;
+  int temp;
 
-  while(current <= tail && !notSorted){
-    index = tail;
-    notSorted = true;
-    while(index > current){
-      if(sortME[index] < sortME[index -1]){
-        notSorted = false;
-        swap = sortME[index -1];
-        sortME[index - 1] = sortME[index];
-        sortME[index] = swap;
+      while(exchange) 
+      {
+            exchange = false;
+            index++;
+
+            for (int i = 0; i < MAX - index; i++) 
+            {
+                  if (list[i] > list[i + 1]) 
+                  {
+                        temp = list[i];
+                        list[i] = list[i + 1];
+                        list[i + 1] = temp;
+                        exchange = true;
+                  }
+            }
       }
-      index--;
-    }
-    current++;
+  return *list;
+}
+//////////////////////////////////////////////////////////////////////////////////
+///FUNCTION:    createArrays
+///DESCRIPTION: inserts random int into arrays
+///INPUT:
+///Parameters: random int make
+///OUTPUT:   
+///Return Val: int *arrayOne and *arrayTwo filled with random int 
+///CALLS TO:  randMAKE
+///IMPLEMENTED BY: Jason Mansfield
+///////////////////////////////////////////////////////////////////////////////////
+void createArrays(int listOne[],int listTwo[]){
+  srand(time(NULL));
+  for(int a = 0; a <= MAX; a++){
+    listOne[a] = rand() % RAND + 1;
+    listTwo[a] = listOne[a];
   }
-  return *sortME;
 }
