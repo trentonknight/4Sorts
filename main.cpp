@@ -13,6 +13,9 @@ const int RAND = 300;
 
 typedef int (*fP)(int []);
 int bubbleSort(int []);
+int mergeSort(int []);
+int quickSort(int []);
+int insertionSort(int []);
 void createArrays(int [],int []);
 bool menuErrorCheck(char);
 string pickSorts();
@@ -57,6 +60,18 @@ int bubbleSort(int list[]){
 	}
     }
   return *list;
+}
+int mergeSort(int merge[]){
+  cout << "called mergesort." << endl;
+  return *merge;
+}
+int quickSort(int quick[]){
+  cout << "called quick." << endl;
+  return *quick;
+}
+int insertionSort(int insert[]){
+  cout << "called insert." << endl;
+  return *insert;
 }
 //////////////////////////////////////////////////////////////////////////////////
 ///FUNCTION:    createArrays
@@ -111,11 +126,33 @@ string pickSorts(){
   return choice;
 }
 void doSort(int l_ONE[],int l_TWO[],string selSrts){
-   fP functionP;
-
-   functionP = &bubbleSort;
-  *l_ONE = (*functionP)(l_ONE);
-
+  fP functionP;
+  int lists = 0;
+  while(lists != 2){
+    switch(selSrts[lists]){
+    case 'M':
+      functionP = &mergeSort;
+      break;
+    case 'Q':
+      functionP = &quickSort;
+      break;
+    case 'I':
+      functionP = &insertionSort;
+      break;
+    case 'B':
+      functionP = &bubbleSort;
+      break;
+    default:
+      cout << "Error! string was corrupted." << endl;
+    }
+    if(lists == 0){
+      *l_ONE = (*functionP)(l_ONE);
+    } 
+    else{
+      *l_TWO = (*functionP)(l_TWO);
+    }
+    lists++;
+  }
 }
 //////////////////////////////////////////////////////////////////////////////////
 ///FUNCTION:    menuErrorCheck
