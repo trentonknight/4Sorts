@@ -20,12 +20,15 @@ void createArrays(int [],int []);
 bool menuErrorCheck(char);
 string pickSorts();
 void doSort(int [],int [],string);
+double clockStop(double);
 
 int main(){
   //create empty arrays
   int list_I[MAX] = {0};
   int list_II[MAX] = {0};
   createArrays(list_I,list_II);
+  //call pickSorts() to get a verify user choice
+  //call doSort which calls function pointers.
   doSort(list_I,list_II,pickSorts());
   
   
@@ -62,15 +65,15 @@ int bubbleSort(int list[]){
   return *list;
 }
 int mergeSort(int merge[]){
-  cout << "called mergesort." << endl;
+  cout << "called mergesort.";
   return *merge;
 }
 int quickSort(int quick[]){
-  cout << "called quick." << endl;
+  cout << "called quick.";
   return *quick;
 }
 int insertionSort(int insert[]){
-  cout << "called insert." << endl;
+  cout << "called insert.";
   return *insert;
 }
 //////////////////////////////////////////////////////////////////////////////////
@@ -128,28 +131,38 @@ string pickSorts(){
 void doSort(int l_ONE[],int l_TWO[],string selSrts){
   fP functionP;
   int lists = 0;
+  double timer = 0.0;
+
   while(lists != 2){
     switch(selSrts[lists]){
     case 'M':
+      cout << "Merge Sort ";
       functionP = &mergeSort;
       break;
     case 'Q':
+      cout << "Quick Sort ";
       functionP = &quickSort;
       break;
     case 'I':
+      cout << "Insertion Sort ";
       functionP = &insertionSort;
       break;
     case 'B':
+      cout << "Bubble Sort ";
       functionP = &bubbleSort;
       break;
     default:
       cout << "Error! string was corrupted." << endl;
     }
     if(lists == 0){
+      timer = clock();
       *l_ONE = (*functionP)(l_ONE);
+      clockStop(timer);
     } 
     else{
+      timer = clock();
       *l_TWO = (*functionP)(l_TWO);
+       clockStop(timer);
     }
     lists++;
   }
@@ -188,4 +201,20 @@ bool menuErrorCheck(char choice)
   }
   return check;
 
+}
+//////////////////////////////////////////////////////////////////////////////////
+///FUNCTION:   clockStop
+///DESCRIPTION: displays time required to run sort 
+///Parameters: clock() stop time
+///OUTPUT:   
+///Return Val: clock stop time minus start time giving total time of sort run
+///CALLS TO: n/a
+///IMPLEMENTED BY: JASON
+///////////////////////////////////////////////////////////////////////////////////
+double clockStop(double start){
+  double stop = clock();
+  double time = ((double)(stop - start));
+  cout.precision(7);
+  cout << fixed << "time " << time << endl;
+  return time;
 }
