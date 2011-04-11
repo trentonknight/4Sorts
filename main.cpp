@@ -19,23 +19,40 @@ int insertionSort(int []);
 void createArrays(int [],int []);
 bool menuErrorCheck(char);
 void pickSorts(char&,char&);
-void doSort(int [],char);
+double doSort(int [],char);
 double clockStop(double);
 void verifyARRAY(int []);
 
 int main(){
+  int repeat = 0;
+  int avg = 0;
   char runOne = '\0';
   char runTwo = '\0';
+  double timeONE = 0.0;
+  double timeTWO = 0.0;
   //create empty arrays
   int list_I[MAX] = {0};
   int list_II[MAX] = {0};
+
+
   createArrays(list_I,list_II);
   //call pickSorts() to get a verify user choice
   pickSorts(runOne,runTwo);
   //call doSort which calls function pointers.
-  doSort(list_I,runOne);
-  
- 
+  cout << "Enter the number of times to repeat each sort (1 or more): " << endl;
+  cin >> repeat;
+  avg = repeat;
+
+  while(repeat != 0){
+  timeONE = doSort(list_I,runOne) + timeONE;
+  timeTWO = doSort(list_II,runTwo) + timeTWO;
+  repeat--;
+  if(repeat != 0){
+   createArrays(list_I,list_II);
+  }
+  }
+  cout << "\nSort Method One Average: " << timeONE/avg << endl;
+  cout << "Sort Method Two Average: " << timeTWO/avg << endl;
 #ifdef _WIN32 
   system ("PAUSE");
 #endif
@@ -130,7 +147,7 @@ void pickSorts(char& one,char& two){
   one = choice[0];
   two = choice[1];
 }
-void doSort(int list[],char sort){
+double doSort(int list[],char sort){
   fP functionP;
   double timer = 0.0;
 
@@ -158,7 +175,8 @@ void doSort(int list[],char sort){
       *list = (*functionP)(list);
       clockStop(timer);
       verifyARRAY(list);
-  
+
+      return timer;
 }
 //////////////////////////////////////////////////////////////////////////////////
 ///FUNCTION:    menuErrorCheck
