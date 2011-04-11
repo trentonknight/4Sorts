@@ -18,19 +18,22 @@ int quickSort(int []);
 int insertionSort(int []);
 void createArrays(int [],int []);
 bool menuErrorCheck(char);
-string pickSorts();
-void doSort(int [],int [],string);
+void pickSorts(char&,char&);
+void doSort(int [],char);
 double clockStop(double);
 void verifyARRAY(int []);
 
 int main(){
+  char runOne = '\0';
+  char runTwo = '\0';
   //create empty arrays
   int list_I[MAX] = {0};
   int list_II[MAX] = {0};
   createArrays(list_I,list_II);
   //call pickSorts() to get a verify user choice
+  pickSorts(runOne,runTwo);
   //call doSort which calls function pointers.
-  doSort(list_I,list_II,pickSorts());
+  doSort(list_I,runOne);
   
  
 #ifdef _WIN32 
@@ -101,7 +104,7 @@ void createArrays(int listOne[],int listTwo[]){
 ///CALLS TO:  menuErrorCheck, pickSorts (if error function recurses)
 ///IMPLEMENTED BY: NATASHA
 ///////////////////////////////////////////////////////////////////////////////////
-string pickSorts(){
+void pickSorts(char& one,char& two){
   bool check;
   string choice;
 		
@@ -117,22 +120,21 @@ string pickSorts(){
   check = menuErrorCheck(choice[0]);
   if(!check){
     choice.clear();
-    pickSorts();
+    pickSorts(one,two);
   }
   check = menuErrorCheck(choice[1]);
   if(!check){
     choice.clear();
-    pickSorts();
+    pickSorts(one,two);
   }
-  return choice;
+  one = choice[0];
+  two = choice[1];
 }
-void doSort(int l_ONE[],int l_TWO[],string selSrts){
+void doSort(int list[],char sort){
   fP functionP;
-  int lists = 0;
   double timer = 0.0;
 
-  while(lists != 2){
-    switch(selSrts[lists]){
+    switch(sort){
     case 'M':
       cout << "Merge Sort ";
       functionP = &mergeSort;
@@ -152,20 +154,11 @@ void doSort(int l_ONE[],int l_TWO[],string selSrts){
     default:
       cout << "Error! string was corrupted." << endl;
     }
-    if(lists == 0){
       timer = clock();
-      *l_ONE = (*functionP)(l_ONE);
+      *list = (*functionP)(list);
       clockStop(timer);
-      verifyARRAY(l_ONE);
-    } 
-    else if(lists == 1){
-      timer = clock();
-      *l_TWO = (*functionP)(l_TWO);
-      clockStop(timer);
-      verifyARRAY(l_TWO);
-    }
-    lists++;
-  }
+      verifyARRAY(list);
+  
 }
 //////////////////////////////////////////////////////////////////////////////////
 ///FUNCTION:    menuErrorCheck
