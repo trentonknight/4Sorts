@@ -72,7 +72,6 @@ void driverFunction(){
 
 
 #ifdef _WIN32
-  cout << "Press any key to continue . . ." << endl; 
   system ("PAUSE");
 #endif
 
