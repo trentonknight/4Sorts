@@ -1,6 +1,7 @@
 #include <iostream>
 #include <stdlib.h>
-#include <ctime>        
+#include <ctime>
+#include <iomanip>        
 #ifdef _WIN32 
 #include <windows.h>
 #endif
@@ -12,6 +13,7 @@ const int MAX = 1000;
 const int RAND = 300;
 
 typedef int (*fP)(int []);
+void driverFunction();
 int bubbleSort(int []);
 int mergeSort(int []);
 int quickSort(int []);
@@ -22,8 +24,18 @@ void pickSorts(char&,char&);
 double doSort(int [],char);
 double clockStop(double);
 void verifyARRAY(int []);
+string sortName(char);
 
 int main(){
+ 
+  driverFunction();
+
+#ifdef _WIN32 
+  system ("PAUSE");
+#endif
+  return 0;
+}
+void driverFunction(){
   int repeat = 0;
   int avg = 0;
   char runOne = '\0';
@@ -44,21 +56,28 @@ int main(){
   avg = repeat;
 
   while(repeat != 0){
-  timeONE = doSort(list_I,runOne) + timeONE;
-  timeTWO = doSort(list_II,runTwo) + timeTWO;
-  repeat--;
-  if(repeat != 0){
-   createArrays(list_I,list_II);
+    timeONE = doSort(list_I,runOne) + timeONE;
+    timeTWO = doSort(list_II,runTwo) + timeTWO;
+    repeat--;
+    if(repeat != 0){
+      createArrays(list_I,list_II);
+    }
   }
-  }
-  cout << "\nSort Method One Average: " << timeONE/avg << endl;
-  cout << "Sort Method Two Average: " << timeTWO/avg << endl;
-#ifdef _WIN32 
+  cout << "SORTING RESULTS" << endl;
+  cout << "---------------" << endl;
+  cout << sortName(runOne) << setw(5) << "  " << timeONE/avg
+       << " clock ticks on average" << endl;
+  cout << sortName(runTwo) << setw(5) << "  " << timeTWO/avg
+       << " clock ticks on average" << endl;
+
+
+#ifdef _WIN32
+  cout << "Press any key to continue . . ." << endl; 
   system ("PAUSE");
 #endif
-  return 0;
-}
 
+  driverFunction();
+}
 int bubbleSort(int list[]){
   bool exchange = true;
   int index = 0;
@@ -151,32 +170,32 @@ double doSort(int list[],char sort){
   fP functionP;
   double timer = 0.0;
 
-    switch(sort){
-    case 'M':
-      cout << "Merge Sort ";
-      functionP = &mergeSort;
-      break;
-    case 'Q':
-      cout << "Quick Sort ";
-      functionP = &quickSort;
-      break;
-    case 'I':
-      cout << "Insertion Sort ";
-      functionP = &insertionSort;
-      break;
-    case 'B':
-      cout << "Bubble Sort ";
-      functionP = &bubbleSort;
-      break;
-    default:
-      cout << "Error! string was corrupted." << endl;
-    }
-      timer = clock();
-      *list = (*functionP)(list);
-      clockStop(timer);
-      verifyARRAY(list);
+  switch(sort){
+  case 'M':
+    cout << "Merge Sort ";
+    functionP = &mergeSort;
+    break;
+  case 'Q':
+    cout << "Quick Sort ";
+    functionP = &quickSort;
+    break;
+  case 'I':
+    cout << "Insertion Sort ";
+    functionP = &insertionSort;
+    break;
+  case 'B':
+    cout << "Bubble Sort ";
+    functionP = &bubbleSort;
+    break;
+  default:
+    cout << "Error! string was corrupted." << endl;
+  }
+  timer = clock();
+  *list = (*functionP)(list);
+  clockStop(timer);
+  verifyARRAY(list);
 
-      return timer;
+  return timer;
 }
 //////////////////////////////////////////////////////////////////////////////////
 ///FUNCTION:    menuErrorCheck
@@ -204,7 +223,7 @@ bool menuErrorCheck(char choice)
     check = true;
     break;
   case 'E':
-    check = true;
+    exit(0);
     break;
   default:
     cout << "Whoops! Character not recognized:" << endl;
@@ -245,4 +264,27 @@ void verifyARRAY(int list[]){
   if(ver){
     cout << "Sort Validated." << endl;
   }
+}
+string sortName(char picked){
+
+  string name;
+
+  switch(picked){
+  case 'M':
+    name = "Merge Sort";
+    break;
+  case 'Q':
+    name = "Quick Sort";
+    break;
+  case 'I':
+    name = "Insertion Sort";
+    break;
+  case 'B':
+    name = "Bubble Sort";
+    break;
+  default:
+    cout << "Whoops! Character corrupted." << endl;
+  }
+  return name;
+
 }
