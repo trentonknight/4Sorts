@@ -21,6 +21,7 @@ bool menuErrorCheck(char);
 string pickSorts();
 void doSort(int [],int [],string);
 double clockStop(double);
+void verifyARRAY(int []);
 
 int main(){
   //create empty arrays
@@ -31,10 +32,7 @@ int main(){
   //call doSort which calls function pointers.
   doSort(list_I,list_II,pickSorts());
   
-  
-
-
-
+ 
 #ifdef _WIN32 
   system ("PAUSE");
 #endif
@@ -158,11 +156,13 @@ void doSort(int l_ONE[],int l_TWO[],string selSrts){
       timer = clock();
       *l_ONE = (*functionP)(l_ONE);
       clockStop(timer);
+      verifyARRAY(l_ONE);
     } 
-    else{
+    else if(lists == 1){
       timer = clock();
       *l_TWO = (*functionP)(l_TWO);
-       clockStop(timer);
+      clockStop(timer);
+      verifyARRAY(l_TWO);
     }
     lists++;
   }
@@ -217,4 +217,21 @@ double clockStop(double start){
   cout.precision(7);
   cout << fixed << "time " << time << endl;
   return time;
+}
+void verifyARRAY(int list[]){
+  bool ver = true;
+
+  for(int a = 1; a < MAX -1; a++){
+    if(list[a] < list[a - 1]){
+      ver = false;
+      cout << "Sort Invalid at: [" << a << "]" << endl;
+    }
+    if(list[a + 1] < list[a]){
+      ver = false;
+      cout << "Sort Invalid at: [" << a << "]" << endl;
+    }
+  }
+  if(ver){
+    cout << "Sort Validated." << endl;
+  }
 }
