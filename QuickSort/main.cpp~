@@ -1,0 +1,26 @@
+#include <iostream>
+#include <stdlib.h>
+#include <ctime>
+#include <iomanip>        
+#ifdef _WIN32 
+#include <windows.h>
+#endif
+
+using namespace std;
+//maximum size of all arrays: 100000
+const int MAX = 1000;
+//highest value allowed per random int in array: 30000
+const int RAND = 300;
+
+int main(){
+
+}
+
+
+int exchange(int list[],int back,int front){
+  int temp;
+  temp = list[back];
+  list[back] = list[front];
+  list[front] = temp;
+  return *list;
+}

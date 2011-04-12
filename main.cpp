@@ -18,6 +18,7 @@ int bubbleSort(int []);
 int mergeSort(int []);
 int quickSort(int []);
 int insertionSort(int []);
+int exchange(int [],int,int);
 void createArrays(int [],int []);
 bool menuErrorCheck(char);
 void pickSorts(char&,char&);
@@ -78,26 +79,30 @@ void driverFunction(){
   driverFunction();
 }
 int bubbleSort(int list[]){
-  bool exchange = true;
+  bool ex = true;
   int index = 0;
-  int temp;
 
-  while(exchange) 
+  while(ex) 
     {
-      exchange = false;
+      ex = false;
       index++;
 
       for (int i = 0; i < MAX - index; i++) 
 	{
 	  if (list[i] > list[i + 1]) 
 	    {
-	      temp = list[i];
-	      list[i] = list[i + 1];
-	      list[i + 1] = temp;
-	      exchange = true;
+	      exchange(list,i,i + 1);
+	      ex = true;
 	    }
 	}
     }
+  return *list;
+}
+int exchange(int list[],int back,int front){
+  int temp;
+  temp = list[back];
+  list[back] = list[front];
+  list[front] = temp;
   return *list;
 }
 int mergeSort(int merge[]){
