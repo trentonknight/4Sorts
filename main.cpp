@@ -189,7 +189,7 @@ double doSort(int list[],char sort){
     cout << "Error! string was corrupted." << endl;
   }
   timer = clock();
-  *list = (*functionP)(list,0,MAX - 1);
+  *list = (*functionP)(list,0,MAX);
   clockStop(timer);
   verifyARRAY(list);
 
@@ -248,19 +248,23 @@ double clockStop(double start){
 }
 void verifyARRAY(int list[]){
   bool ver = true;
+  int invalid = 0;
 
   for(int a = 1; a < MAX -1; a++){
     if(list[a] < list[a - 1]){
       ver = false;
-      cout << "Sort Invalid at: [" << a << "]" << endl;
+      invalid++;
     }
     if(list[a + 1] < list[a]){
       ver = false;
-      cout << "Sort Invalid at: [" << a << "]" << endl;
+      invalid++;
     }
   }
   if(ver){
     cout << "Sort Validated." << endl;
+  }
+  else{
+    cout << "WARNING!: " << invalid << " invalid matches." << endl;
   }
 }
 string sortName(char picked){
@@ -290,23 +294,28 @@ string sortName(char picked){
 int quickSort(int list[],int left,int right){
   int pivot;
   int sortLeft;
-  int sortRight;
+  int sortRight; 
 
   if((right - left) > 0){
     medianLeft(list,left,right);
     pivot = list[left];
     sortLeft = left + 1;
     sortRight = right;
-    while(list[sortLeft] <  list[sortRight]){
-      sortLeft = sortLeft + 1;
+
+    while(sortLeft <=  sortRight){
+      while(list[sortLeft] < pivot){
+	sortLeft++;
+      }
+      while(list[sortRight] >= pivot){
+	sortRight--;
+      }
+      if(sortLeft <= sortRight)
+	{
+          exchange(list,left,right);
+          sortLeft++;
+          sortRight--;
+	}
     }
-       while(list[sortRight] >= pivot){
-	 sortRight = sortRight - 1;
-       }
-    exchange(list,sortLeft,sortRight);
-    sortLeft = sortLeft + 1;
-    sortRight = sortRight - 1;
-  }///end if
   ///next phase
   list[left] = list[sortLeft - 1];
   list[sortLeft - 1] = pivot;
@@ -316,6 +325,7 @@ int quickSort(int list[],int left,int right){
   if(sortLeft < right){
     quickSort(list,sortLeft,right);
   }
+ }///end if
   else{
     insertionSort(list,left,right);
   }
