@@ -12,12 +12,14 @@ const int MAX = 1000;
 //highest value allowed per random int in array: 30000
 const int RAND = 300;
 
-typedef int (*fP)(int []);
+typedef int (*fP)(int [],int,int);
 void driverFunction();
-int bubbleSort(int []);
-int mergeSort(int []);
-int quickSort(int []);
-int insertionSort(int []);
+int bubbleSort(int [],int,int);
+int mergeSort(int [],int,int);
+int callQuick(int []);
+int quickSort(int [],int,int);
+int medianLeft(int [],int,int);
+int insertionSort(int [],int,int);
 int exchange(int [],int,int);
 void createArrays(int [],int []);
 bool menuErrorCheck(char);
@@ -78,7 +80,7 @@ void driverFunction(){
 
   driverFunction();
 }
-int bubbleSort(int list[]){
+int bubbleSort(int list[],int left,int right){
   bool ex = true;
   int index = 0;
 
@@ -105,17 +107,9 @@ int exchange(int list[],int back,int front){
   list[front] = temp;
   return *list;
 }
-int mergeSort(int merge[]){
+int mergeSort(int merge[],int left,int right){
   cout << "called mergesort.";
   return *merge;
-}
-int quickSort(int quick[]){
-  cout << "called quick.";
-  return *quick;
-}
-int insertionSort(int insert[]){
-  cout << "called insert.";
-  return *insert;
 }
 //////////////////////////////////////////////////////////////////////////////////
 ///FUNCTION:    createArrays
@@ -195,7 +189,7 @@ double doSort(int list[],char sort){
     cout << "Error! string was corrupted." << endl;
   }
   timer = clock();
-  *list = (*functionP)(list);
+  *list = (*functionP)(list,0,MAX - 1);
   clockStop(timer);
   verifyARRAY(list);
 
@@ -291,4 +285,74 @@ string sortName(char picked){
   }
   return name;
 
+}
+///quicksort functions below
+int quickSort(int list[],int left,int right){
+  int pivot;
+  int sortLeft;
+  int sortRight;
+
+  if((right - left) > 0){
+    medianLeft(list,left,right);
+    pivot = list[left];
+    sortLeft = left + 1;
+    sortRight = right;
+    while(list[sortLeft] <  list[sortRight]){
+      sortLeft = sortLeft + 1;
+    }
+       while(list[sortRight] >= pivot){
+	 sortRight = sortRight - 1;
+       }
+    exchange(list,sortLeft,sortRight);
+    sortLeft = sortLeft + 1;
+    sortRight = sortRight - 1;
+  }///end if
+  ///next phase
+  list[left] = list[sortLeft - 1];
+  list[sortLeft - 1] = pivot;
+  if(left < sortRight){
+    quickSort(list,left,sortRight - 1);
+  }
+  if(sortLeft < right){
+    quickSort(list,sortLeft,right);
+  }
+  else{
+    insertionSort(list,left,right);
+  }
+  return *list;
+}
+int medianLeft(int list[],int left, int right){
+  int mid;
+
+  mid = (left + right)/2;
+
+  if(list[left] > list[mid]){
+    exchange(list,left,mid);
+  }
+  if(list[left] > list[right]){
+    exchange(list,left,right);
+  }
+  if(list[mid] > list[right]){
+    exchange(list,mid,right);
+  }
+  exchange(list,left,mid);
+
+  return *list;
+}
+int insertionSort(int list[],int first,int last){
+  int current;
+  int hold;
+  int walker;
+
+  for(current = first + 1; current <= last; current++){
+    hold = list[current];
+    walker = current - 1;
+    while(walker >= first && hold < list[walker])
+      {
+	list[walker + 1] = list[walker];
+	walker--;
+      }
+    list[walker + 1] = hold;
+  }
+  return *list;
 }

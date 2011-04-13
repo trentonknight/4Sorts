@@ -31,16 +31,17 @@ int main(){
   for(int a = 0; a < 10; a++){
     index[a] = a * 10;
   } 
-  index[11] = 0;
 
   callQuick(index);
+
+  cin.get();
 
   delete [] index;
 
 }
 
 int callQuick(int list[]){
-  quickSort(list,0,10);
+  quickSort(list,0,9);
   return *list;
 }
 int quickSort(int list[],int left,int right){
@@ -93,13 +94,6 @@ int medianLeft(int list[],int left, int right){
   }
   exchange(list,left,mid);
 
-  return *list;
-}
-int exchange(int list[],int back,int front){
-  int temp;
-  temp = list[back];
-  list[back] = list[front];
-  list[front] = temp;
   return *list;
 }
 int insertionSort(int list[],int first,int last){
