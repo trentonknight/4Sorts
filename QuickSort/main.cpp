@@ -8,7 +8,7 @@
 
 using namespace std;
 //maximum size of all arrays: 100000
-const int MAX = 1000;
+const int MAX = 10;
 //highest value allowed per random int in array: 30000
 const int RAND = 300;
 
@@ -20,16 +20,27 @@ int insertionSort(int[],int,int);
 
 int main(){
    
-  int array[10] = {79,4,7,9,11,345,12233,34,99,2};
+  int *index;
 
-  callQuick(array);
+  index = new(nothrow) int[MAX];
+  if(!index){
+    cout << "Allocation failure.\n" << endl;
+  }
+   
+ 
+  for(int a = 0; a < 10; a++){
+    index[a] = a * 10;
+  } 
+  index[11] = 0;
 
-  cin.get();
+  callQuick(index);
+
+  delete [] index;
 
 }
 
 int callQuick(int list[]){
-  quickSort(list,0,MAX);
+  quickSort(list,0,10);
   return *list;
 }
 int quickSort(int list[],int left,int right){
@@ -67,7 +78,7 @@ int quickSort(int list[],int left,int right){
   return *list;
 }
 int medianLeft(int list[],int left, int right){
-  int mid = 0;
+  int mid;
 
   mid = (left + right)/2;
 
@@ -91,7 +102,20 @@ int exchange(int list[],int back,int front){
   list[front] = temp;
   return *list;
 }
-int insertionSort(int list[],int left,int right){
+int insertionSort(int list[],int first,int last){
+  int current;
+  int hold;
+  int walker;
 
+  for(current = first + 1; current <= last; current++){
+    hold = list[current];
+    walker = current - 1;
+    while(walker >= first && hold < list[walker])
+      {
+	list[walker + 1] = list[walker];
+	walker--;
+      }
+    list[walker + 1] = hold;
+  }
   return *list;
 }
