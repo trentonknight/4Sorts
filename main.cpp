@@ -8,17 +8,17 @@
 
 using namespace std;
 //maximum size of all arrays: 100000
-const int MAX = 1000;
+const int MAX = 100000;
 //highest value allowed per random int in array: 30000
-const int RAND = 300;
+const int RAND = 30000;
 
 typedef int (*fP)(int [],int,int);
 void driverFunction();
 int bubbleSort(int [],int,int);
 int mergeSort(int [],int,int);
 int callQuick(int []);
+int quickS(int [],int,int);
 int quickSort(int [],int,int);
-int medianLeft(int [],int,int);
 int insertionSort(int [],int,int);
 int exchange(int [],int,int);
 void createArrays(int [],int []);
@@ -175,7 +175,7 @@ double doSort(int list[],char sort){
     break;
   case 'Q':
     cout << "Quick Sort ";
-    functionP = &quickSort;
+    functionP = &quickS;
     break;
   case 'I':
     cout << "Insertion Sort ";
@@ -291,70 +291,42 @@ string sortName(char picked){
 
 }
 ///quicksort functions below
-int quickSort(int list[],int left,int right){
-  int pivot;
-  int sortLeft;
-  int sortRight; 
-
-  if((right - left) > 0){
-    medianLeft(list,left,right);
-    pivot = list[left];
-    sortLeft = left + 1;
-    sortRight = right;
-
-    while(sortLeft <=  sortRight){
-      while(list[sortLeft] < pivot){
-	sortLeft++;
-      }
-      while(list[sortRight] >= pivot){
-	sortRight--;
-      }
-      if(sortLeft <= sortRight)
-	{
-          exchange(list,left,right);
-          sortLeft++;
-          sortRight--;
-	}
-    }
-  ///next phase
-  list[left] = list[sortLeft - 1];
-  list[sortLeft - 1] = pivot;
-  if(left < sortRight){
-    quickSort(list,left,sortRight - 1);
-  }
-  if(sortLeft < right){
-    quickSort(list,sortLeft,right);
-  }
- }///end if
-  else{
-    insertionSort(list,left,right);
-  }
-  return *list;
+int quickS(int array[],int front,int back) 
+{
+  quickSort(array, front, back - 1);
+  return *array;
 }
-int medianLeft(int list[],int left, int right){
-  int mid;
+int quickSort(int index[], int start, int stop)
+{
+  int front = start;                         
+  int back = stop;                          
 
-  mid = (left + right)/2;
+  if (stop - start >= 1)                   
+    {
+      int pivot = index[start];       
 
-  if(list[left] > list[mid]){
-    exchange(list,left,mid);
-  }
-  if(list[left] > list[right]){
-    exchange(list,left,right);
-  }
-  if(list[mid] > list[right]){
-    exchange(list,mid,right);
-  }
-  exchange(list,left,mid);
-
-  return *list;
+      while (back > front)                  
+	{
+	  while (index[front] <= pivot && front <= stop && back > front)  
+	    front++;                                    
+	  while (index[back] > pivot && back >= start && back >= front) 
+	    back--;                                     
+	  if (back > front)                                    
+	    exchange(index, front, back);                   
+	}
+      exchange(index, start, back);                                                    
+      quickSort(index, start, back - 1); 
+      quickSort(index, back + 1, stop);   
+    }
+        
+  return *index;
 }
 int insertionSort(int list[],int first,int last){
   int current;
   int hold;
   int walker;
 
-  for(current = first + 1; current <= last; current++){
+  for(current = first + 1; current <= (last -1); current++){
     hold = list[current];
     walker = current - 1;
     while(walker >= first && hold < list[walker])
