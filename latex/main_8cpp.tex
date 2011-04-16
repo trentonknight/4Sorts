@@ -1,0 +1,553 @@
+\hypertarget{main_8cpp}{
+\section{main.cpp File Reference}
+\label{main_8cpp}\index{main.cpp@{main.cpp}}
+}
+{\ttfamily \#include $<$iostream$>$}\par
+{\ttfamily \#include $<$stdlib.h$>$}\par
+{\ttfamily \#include $<$ctime$>$}\par
+{\ttfamily \#include $<$iomanip$>$}\par
+Include dependency graph for main.cpp:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef int($\ast$ \hyperlink{main_8cpp_a510f845482d4d3c6808202ab30a3c3c1}{fP} )(int\mbox{[}$\,$\mbox{]}, int, int)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_af644bb237adf7e8890d710e23112d750}{driverFunction} ()
+\item 
+int \hyperlink{main_8cpp_a263496fd75690022f51ef143bcefea6a}{bubbleSort} (int\mbox{[}$\,$\mbox{]}, int, int)
+\item 
+int \hyperlink{main_8cpp_acab6d638c9c48980367ec2e2679e461f}{mergeSort} (int\mbox{[}$\,$\mbox{]}, int, int)
+\item 
+int \hyperlink{main_8cpp_aed731639ffda0be77e4fb5a072b12241}{quickS} (int\mbox{[}$\,$\mbox{]}, int, int)
+\item 
+int \hyperlink{main_8cpp_a29e22172e7eccd6b30ab9f84820c8d19}{quickSort} (int\mbox{[}$\,$\mbox{]}, int, int)
+\item 
+int \hyperlink{main_8cpp_a688d033c248e3c6afb9dc3d55efd4bed}{insertionSort} (int\mbox{[}$\,$\mbox{]}, int, int)
+\item 
+int \hyperlink{main_8cpp_a8792a5f933238f411cce8f1c86e070c6}{exchange} (int\mbox{[}$\,$\mbox{]}, int, int)
+\item 
+void \hyperlink{main_8cpp_aee7be741bfc50cc657390fd9c920fd44}{createArrays} (int\mbox{[}$\,$\mbox{]}, int\mbox{[}$\,$\mbox{]})
+\item 
+bool \hyperlink{main_8cpp_a35092537d6c768f4c3289126d89c29e3}{menuErrorCheck} (char)
+\item 
+void \hyperlink{main_8cpp_a9c408f8e330c4bcbcb93b86e417ca4ef}{pickSorts} (char \&, char \&)
+\item 
+double \hyperlink{main_8cpp_a71b5c213b0df5f7b18c2f4b4b7e946c7}{doSort} (int\mbox{[}$\,$\mbox{]}, char)
+\item 
+double \hyperlink{main_8cpp_acf7131f78f6fa37d44271b49198040cf}{clockStop} (double)
+\item 
+void \hyperlink{main_8cpp_a03288ffd50949b2556376dcf6c379444}{verifyARRAY} (int\mbox{[}$\,$\mbox{]})
+\item 
+string \hyperlink{main_8cpp_a800a4460b3dfd058b5b5e07bf5f6c9d1}{sortName} (char)
+\item 
+int \hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{main_8cpp_af7dbda7167e22cb3417c16f78061ad80}{MAX} = 100000
+\item 
+const int \hyperlink{main_8cpp_a96159e5b5412af19b2c9860a10f0b5b3}{RAND} = 30000
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{main_8cpp_a510f845482d4d3c6808202ab30a3c3c1}{
+\index{main.cpp@{main.cpp}!fP@{fP}}
+\index{fP@{fP}!main.cpp@{main.cpp}}
+\subsubsection[{fP}]{\setlength{\rightskip}{0pt plus 5cm}typedef int($\ast$ {\bf fP})(int\mbox{[}$\,$\mbox{]}, int, int)}}
+\label{main_8cpp_a510f845482d4d3c6808202ab30a3c3c1}
+
+
+Definition at line 25 of file main.cpp.
+
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cpp_a263496fd75690022f51ef143bcefea6a}{
+\index{main.cpp@{main.cpp}!bubbleSort@{bubbleSort}}
+\index{bubbleSort@{bubbleSort}!main.cpp@{main.cpp}}
+\subsubsection[{bubbleSort}]{\setlength{\rightskip}{0pt plus 5cm}int bubbleSort (
+\begin{DoxyParamCaption}
+\item[{int}]{list\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{left, }
+\item[{int}]{right}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a263496fd75690022f51ef143bcefea6a}
+FUNCTION: \hyperlink{main_8cpp_a263496fd75690022f51ef143bcefea6a}{bubbleSort()} DESCRIPTION: simple bubble sort function INPUT: Parameters: list\mbox{[}\mbox{]}, int left, right. random int in list\mbox{[}\mbox{]}. OUTPUT: Return Val: list\mbox{[}\mbox{]} Parameters: returns list\mbox{[}\mbox{]} sorted. CALLS TO: \hyperlink{main_8cpp_a8792a5f933238f411cce8f1c86e070c6}{exchange()} IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 120 of file main.cpp.
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=240pt]{main_8cpp_a263496fd75690022f51ef143bcefea6a_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_a263496fd75690022f51ef143bcefea6a_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_acf7131f78f6fa37d44271b49198040cf}{
+\index{main.cpp@{main.cpp}!clockStop@{clockStop}}
+\index{clockStop@{clockStop}!main.cpp@{main.cpp}}
+\subsubsection[{clockStop}]{\setlength{\rightskip}{0pt plus 5cm}double clockStop (
+\begin{DoxyParamCaption}
+\item[{double}]{start}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_acf7131f78f6fa37d44271b49198040cf}
+FUNCTION: clockStop DESCRIPTION: displays time required to run sort Parameters: clock() stop time OUTPUT: Return Val: clock stop time minus start time giving total time of sort run CALLS TO: n/a IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 314 of file main.cpp.
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_acf7131f78f6fa37d44271b49198040cf_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_aee7be741bfc50cc657390fd9c920fd44}{
+\index{main.cpp@{main.cpp}!createArrays@{createArrays}}
+\index{createArrays@{createArrays}!main.cpp@{main.cpp}}
+\subsubsection[{createArrays}]{\setlength{\rightskip}{0pt plus 5cm}void createArrays (
+\begin{DoxyParamCaption}
+\item[{int}]{listOne\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{listTwo\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_aee7be741bfc50cc657390fd9c920fd44}
+FUNCTION: \hyperlink{main_8cpp_aee7be741bfc50cc657390fd9c920fd44}{createArrays()} DESCRIPTION: inserts random int into arrays INPUT: Parameters: random int make OUTPUT: Return Val: int $\ast$arrayOne and $\ast$arrayTwo filled with random int CALLS TO: randMAKE IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 182 of file main.cpp.
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=340pt]{main_8cpp_aee7be741bfc50cc657390fd9c920fd44_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_a71b5c213b0df5f7b18c2f4b4b7e946c7}{
+\index{main.cpp@{main.cpp}!doSort@{doSort}}
+\index{doSort@{doSort}!main.cpp@{main.cpp}}
+\subsubsection[{doSort}]{\setlength{\rightskip}{0pt plus 5cm}double doSort (
+\begin{DoxyParamCaption}
+\item[{int}]{list\mbox{[}$\,$\mbox{]}, }
+\item[{char}]{sort}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a71b5c213b0df5f7b18c2f4b4b7e946c7}
+FUNCTION: \hyperlink{main_8cpp_a71b5c213b0df5f7b18c2f4b4b7e946c7}{doSort()} DESCRIPTION: Calls functions with function pointer and runs a variety of sorts. INPUT: Parameters: unsorted list\mbox{[}\mbox{]}, char sort (user selection) OUTPUT: Return Val: returns timer which contains the run time of sorting method. Parameters: double timer CALLS TO: \hyperlink{main_8cpp_acab6d638c9c48980367ec2e2679e461f}{mergeSort()}, \hyperlink{main_8cpp_aed731639ffda0be77e4fb5a072b12241}{quickS()},\hyperlink{main_8cpp_a688d033c248e3c6afb9dc3d55efd4bed}{insertionSort()}, \hyperlink{main_8cpp_a263496fd75690022f51ef143bcefea6a}{bubbleSort()}, \hyperlink{main_8cpp_acf7131f78f6fa37d44271b49198040cf}{clockStop()}, \hyperlink{main_8cpp_a03288ffd50949b2556376dcf6c379444}{verifyARRAY()}. IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 239 of file main.cpp.
+
+
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_a71b5c213b0df5f7b18c2f4b4b7e946c7_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=314pt]{main_8cpp_a71b5c213b0df5f7b18c2f4b4b7e946c7_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_af644bb237adf7e8890d710e23112d750}{
+\index{main.cpp@{main.cpp}!driverFunction@{driverFunction}}
+\index{driverFunction@{driverFunction}!main.cpp@{main.cpp}}
+\subsubsection[{driverFunction}]{\setlength{\rightskip}{0pt plus 5cm}void driverFunction (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_af644bb237adf7e8890d710e23112d750}
+FUNCTION: driverfunction() DESCRIPTION: the driverfunction handles creating of lists followed by cycling them through functions which verify user input, select sort methods, perform selected sorts, timing of sorts, creating new random lists and selection from user of times in which to run. CALLS TO: \hyperlink{main_8cpp_aee7be741bfc50cc657390fd9c920fd44}{createArrays()}, \hyperlink{main_8cpp_a9c408f8e330c4bcbcb93b86e417ca4ef}{pickSorts()}, soSort(), \hyperlink{main_8cpp_af644bb237adf7e8890d710e23112d750}{driverFunction()} IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 66 of file main.cpp.
+
+
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_af644bb237adf7e8890d710e23112d750_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=232pt]{main_8cpp_af644bb237adf7e8890d710e23112d750_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_a8792a5f933238f411cce8f1c86e070c6}{
+\index{main.cpp@{main.cpp}!exchange@{exchange}}
+\index{exchange@{exchange}!main.cpp@{main.cpp}}
+\subsubsection[{exchange}]{\setlength{\rightskip}{0pt plus 5cm}int exchange (
+\begin{DoxyParamCaption}
+\item[{int}]{list\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{back, }
+\item[{int}]{front}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a8792a5f933238f411cce8f1c86e070c6}
+FUNCTION: \hyperlink{main_8cpp_a8792a5f933238f411cce8f1c86e070c6}{exchange()} DESCRIPTION: exchanges selected int's in array INPUT: Parameters: list\mbox{[}\mbox{]}, int back, int front front is an index in list as is back. OUTPUT: Return Val: $\ast$list Parameters: list now has two int swapped. IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 151 of file main.cpp.
+
+
+
+Here is the caller graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_a8792a5f933238f411cce8f1c86e070c6_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_a688d033c248e3c6afb9dc3d55efd4bed}{
+\index{main.cpp@{main.cpp}!insertionSort@{insertionSort}}
+\index{insertionSort@{insertionSort}!main.cpp@{main.cpp}}
+\subsubsection[{insertionSort}]{\setlength{\rightskip}{0pt plus 5cm}int insertionSort (
+\begin{DoxyParamCaption}
+\item[{int}]{list\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{first, }
+\item[{int}]{last}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a688d033c248e3c6afb9dc3d55efd4bed}
+FUNCTION: \hyperlink{main_8cpp_a688d033c248e3c6afb9dc3d55efd4bed}{insertionSort()} DESCRIPTION: a basic insertion sort algorithm which takes list and sorts it from less than to greatest. INPUT: Parameters: int array list\mbox{[}\mbox{]} and index first and last. OUTPUT: Return Val: sorted int array list\mbox{[}\mbox{]} IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 447 of file main.cpp.
+
+
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=248pt]{main_8cpp_a688d033c248e3c6afb9dc3d55efd4bed_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_a688d033c248e3c6afb9dc3d55efd4bed_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{
+\index{main.cpp@{main.cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}
+FUNCTION: \hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main()} DESCRIPTION: simple calls driver function. CALLS TO: List of programmer-\/written functions called (names only) IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 47 of file main.cpp.
+
+
+
+Here is the call graph for this function:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4_cgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_a35092537d6c768f4c3289126d89c29e3}{
+\index{main.cpp@{main.cpp}!menuErrorCheck@{menuErrorCheck}}
+\index{menuErrorCheck@{menuErrorCheck}!main.cpp@{main.cpp}}
+\subsubsection[{menuErrorCheck}]{\setlength{\rightskip}{0pt plus 5cm}bool menuErrorCheck (
+\begin{DoxyParamCaption}
+\item[{char}]{choice}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a35092537d6c768f4c3289126d89c29e3}
+FUNCTION: menuErrorCheck DESCRIPTION: verifies user input for mistakes INPUT: Parameters: string choice OUTPUT: Return Val: true of false if user submitted valid choice Parameters: bool check IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 280 of file main.cpp.
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_a35092537d6c768f4c3289126d89c29e3_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_acab6d638c9c48980367ec2e2679e461f}{
+\index{main.cpp@{main.cpp}!mergeSort@{mergeSort}}
+\index{mergeSort@{mergeSort}!main.cpp@{main.cpp}}
+\subsubsection[{mergeSort}]{\setlength{\rightskip}{0pt plus 5cm}int mergeSort (
+\begin{DoxyParamCaption}
+\item[{int}]{merge\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{left, }
+\item[{int}]{right}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_acab6d638c9c48980367ec2e2679e461f}
+FUNCTION: \hyperlink{main_8cpp_acab6d638c9c48980367ec2e2679e461f}{mergeSort()} DESCRIPTION: merges and then sorts list INPUT: Parameters: list merge\mbox{[}\mbox{]} and int index selections left and right OUTPUT: Return Val: sorted list merge\mbox{[}\mbox{]} CALLS TO: \hyperlink{main_8cpp_acab6d638c9c48980367ec2e2679e461f}{mergeSort()}, \hyperlink{main_8cpp_a8792a5f933238f411cce8f1c86e070c6}{exchange()} IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 168 of file main.cpp.
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_acab6d638c9c48980367ec2e2679e461f_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_a9c408f8e330c4bcbcb93b86e417ca4ef}{
+\index{main.cpp@{main.cpp}!pickSorts@{pickSorts}}
+\index{pickSorts@{pickSorts}!main.cpp@{main.cpp}}
+\subsubsection[{pickSorts}]{\setlength{\rightskip}{0pt plus 5cm}void pickSorts (
+\begin{DoxyParamCaption}
+\item[{char \&}]{one, }
+\item[{char \&}]{two}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a9c408f8e330c4bcbcb93b86e417ca4ef}
+FUNCTION: pickSorts DESCRIPTION: retrieve user input to chooce two sort functions INPUT: Parameters: string choice OUTPUT: Return Val: string choice CALLS TO: menuErrorCheck, pickSorts IMPLEMENTED BY: Mansfield 
+
+Definition at line 199 of file main.cpp.
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=264pt]{main_8cpp_a9c408f8e330c4bcbcb93b86e417ca4ef_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=326pt]{main_8cpp_a9c408f8e330c4bcbcb93b86e417ca4ef_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_aed731639ffda0be77e4fb5a072b12241}{
+\index{main.cpp@{main.cpp}!quickS@{quickS}}
+\index{quickS@{quickS}!main.cpp@{main.cpp}}
+\subsubsection[{quickS}]{\setlength{\rightskip}{0pt plus 5cm}int quickS (
+\begin{DoxyParamCaption}
+\item[{int}]{array\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{front, }
+\item[{int}]{back}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_aed731639ffda0be77e4fb5a072b12241}
+FUNCTION: \hyperlink{main_8cpp_aed731639ffda0be77e4fb5a072b12241}{quickS()} DESCRIPTION: decrements length of array to be read from. This avoids the quicksort from attempting to read past allocated memory. INPUT: Parameters: list array\mbox{[}\mbox{]} and indexes front and back. OUTPUT: Return Val: returns sorted array $\ast$array CALLS TO: \hyperlink{main_8cpp_a29e22172e7eccd6b30ab9f84820c8d19}{quickSort()} IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 394 of file main.cpp.
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=318pt]{main_8cpp_aed731639ffda0be77e4fb5a072b12241_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=398pt]{main_8cpp_aed731639ffda0be77e4fb5a072b12241_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_a29e22172e7eccd6b30ab9f84820c8d19}{
+\index{main.cpp@{main.cpp}!quickSort@{quickSort}}
+\index{quickSort@{quickSort}!main.cpp@{main.cpp}}
+\subsubsection[{quickSort}]{\setlength{\rightskip}{0pt plus 5cm}int quickSort (
+\begin{DoxyParamCaption}
+\item[{int}]{index\mbox{[}$\,$\mbox{]}, }
+\item[{int}]{start, }
+\item[{int}]{stop}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a29e22172e7eccd6b30ab9f84820c8d19}
+FUNCTION: \hyperlink{main_8cpp_a29e22172e7eccd6b30ab9f84820c8d19}{quickSort()} DESCRIPTION: quickSort breaks the list up via pivot points and partitions the array for a divide and conquer approach. INPUT: Parameters: list index\mbox{[}\mbox{]} with current index in the front of partition start while stop is the end of the partition. OUTPUT: Return Val: return sorted list index\mbox{[}\mbox{]} or recurse for furthur partitioning and exchanges. CALLS TO: \hyperlink{main_8cpp_a8792a5f933238f411cce8f1c86e070c6}{exchange()}, \hyperlink{main_8cpp_a29e22172e7eccd6b30ab9f84820c8d19}{quickSort()} IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 412 of file main.cpp.
+
+
+
+Here is the call graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=234pt]{main_8cpp_a29e22172e7eccd6b30ab9f84820c8d19_cgraph}
+\end{center}
+\end{figure}
+
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_a29e22172e7eccd6b30ab9f84820c8d19_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_a800a4460b3dfd058b5b5e07bf5f6c9d1}{
+\index{main.cpp@{main.cpp}!sortName@{sortName}}
+\index{sortName@{sortName}!main.cpp@{main.cpp}}
+\subsubsection[{sortName}]{\setlength{\rightskip}{0pt plus 5cm}string sortName (
+\begin{DoxyParamCaption}
+\item[{char}]{picked}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a800a4460b3dfd058b5b5e07bf5f6c9d1}
+FUNCTION: \hyperlink{main_8cpp_a800a4460b3dfd058b5b5e07bf5f6c9d1}{sortName()} DESCRIPTION: recieves user selected char and creates string named after choosen sort method. INPUT: Parameters: char picked OUTPUT: Return Val: string name IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 360 of file main.cpp.
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=328pt]{main_8cpp_a800a4460b3dfd058b5b5e07bf5f6c9d1_icgraph}
+\end{center}
+\end{figure}
+
+
+\hypertarget{main_8cpp_a03288ffd50949b2556376dcf6c379444}{
+\index{main.cpp@{main.cpp}!verifyARRAY@{verifyARRAY}}
+\index{verifyARRAY@{verifyARRAY}!main.cpp@{main.cpp}}
+\subsubsection[{verifyARRAY}]{\setlength{\rightskip}{0pt plus 5cm}void verifyARRAY (
+\begin{DoxyParamCaption}
+\item[{int}]{list\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}
+\label{main_8cpp_a03288ffd50949b2556376dcf6c379444}
+FUNCTION: \hyperlink{main_8cpp_a03288ffd50949b2556376dcf6c379444}{verifyARRAY()} DESCRIPTION: verifies that indexes above the below indexes is larger throughout entire array; Otherwise a Warning message is given. INPUT: Parameters: sorted list\mbox{[}\mbox{]} IMPLEMENTED BY: Jason Mansfield 
+
+Definition at line 329 of file main.cpp.
+
+
+
+Here is the caller graph for this function:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=400pt]{main_8cpp_a03288ffd50949b2556376dcf6c379444_icgraph}
+\end{center}
+\end{figure}
+
+
+
+
+\subsection{Variable Documentation}
+\hypertarget{main_8cpp_af7dbda7167e22cb3417c16f78061ad80}{
+\index{main.cpp@{main.cpp}!MAX@{MAX}}
+\index{MAX@{MAX}!main.cpp@{main.cpp}}
+\subsubsection[{MAX}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf MAX} = 100000}}
+\label{main_8cpp_af7dbda7167e22cb3417c16f78061ad80}
+
+
+Definition at line 21 of file main.cpp.
+
+\hypertarget{main_8cpp_a96159e5b5412af19b2c9860a10f0b5b3}{
+\index{main.cpp@{main.cpp}!RAND@{RAND}}
+\index{RAND@{RAND}!main.cpp@{main.cpp}}
+\subsubsection[{RAND}]{\setlength{\rightskip}{0pt plus 5cm}const int {\bf RAND} = 30000}}
+\label{main_8cpp_a96159e5b5412af19b2c9860a10f0b5b3}
+
+
+Definition at line 23 of file main.cpp.
+
