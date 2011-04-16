@@ -1,3 +1,13 @@
+/////////////////////////////////////////////////////////////////////////
+///CODE FILENAME: MansfieldStoddard-ASSN4-SortProg.cpp
+///DESCRIPTION:   Program tests the speed of four different sort techniques.
+///  DATE:     26 APRIL 11
+///  DESIGNER:	Jason N Mansfield
+///  FUNCTIONS:   driverFunction(), bubbleSort(), mergeSort(),quickS()
+///               quickSort(), insertionSort(), exchange(), createArrays()
+///               menuErrorCheck(), pickSorts(), doSort(), clockStop(),
+///               verifyARRAY(), sortName()
+////////////////////////////////////////////////////////////////////////
 #include <iostream>
 #include <stdlib.h>
 #include <ctime>
@@ -16,7 +26,6 @@ typedef int (*fP)(int [],int,int);
 void driverFunction();
 int bubbleSort(int [],int,int);
 int mergeSort(int [],int,int);
-int callQuick(int []);
 int quickS(int [],int,int);
 int quickSort(int [],int,int);
 int insertionSort(int [],int,int);
@@ -29,6 +38,12 @@ double clockStop(double);
 void verifyARRAY(int []);
 string sortName(char);
 
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION: main()
+///  DESCRIPTION:   simple calls driver function.
+///  CALLS TO:  List of programmer-written functions called (names only)
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 int main(){
  
   driverFunction();
@@ -38,6 +53,16 @@ int main(){
 #endif
   return 0;
 }
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION: driverfunction()
+///  DESCRIPTION:  the driverfunction handles creating of lists followed by 
+///                cycling them through functions which verify user input,
+///                select sort methods, perform selected sorts, timing of sorts,
+///                creating new random lists and selection from user of times in which 
+///                to run.
+///  CALLS TO: createArrays(), pickSorts(), soSort(), driverFunction()
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 void driverFunction(){
   int repeat = 0;
   int avg = 0;
@@ -80,6 +105,18 @@ void driverFunction(){
 
   driverFunction();
 }
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION:  bubbleSort()
+///  DESCRIPTION:  simple bubble sort function
+///  INPUT:
+///  	Parameters: list[], int left, right.
+///                 random int in list[].
+///  OUTPUT:   
+///  	Return Val: list[]
+///  	Parameters: returns list[] sorted.
+///  CALLS TO: exchange()
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 int bubbleSort(int list[],int left,int right){
   bool ex = true;
   int index = 0;
@@ -100,6 +137,17 @@ int bubbleSort(int list[],int left,int right){
     }
   return *list;
 }
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION: exchange()
+///  DESCRIPTION:  exchanges selected int's in array
+///  INPUT:
+///  	Parameters: list[], int back, int front
+///                 front is an index in list as is back.
+///  OUTPUT:   
+///  	Return Val: *list 
+///  	Parameters: list now has two int swapped.
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 int exchange(int list[],int back,int front){
   int temp;
   temp = list[back];
@@ -107,12 +155,25 @@ int exchange(int list[],int back,int front){
   list[front] = temp;
   return *list;
 }
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION:	mergeSort()
+///  DESCRIPTION:	Description of purpose of function
+///  INPUT:
+///  	Parameters: Name and description of each input parameter
+///  	File:  	Brief description of data read from file
+///  OUTPUT:   
+///  	Return Val: Description of data returned by a function
+///  	Parameters: Name and description of the output parameters
+///  	File:	Brief description of data written to file
+///  CALLS TO:  List of programmer-written functions called (names only)
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 int mergeSort(int merge[],int left,int right){
   cout << "called mergesort.";
   return *merge;
 }
 //////////////////////////////////////////////////////////////////////////////////
-///FUNCTION:    createArrays
+///FUNCTION:    createArrays()
 ///DESCRIPTION: inserts random int into arrays
 ///INPUT:
 ///Parameters: random int make
@@ -132,11 +193,11 @@ void createArrays(int listOne[],int listTwo[]){
 ///FUNCTION:    pickSorts
 ///DESCRIPTION:  retrieve user input to chooce two sort functions
 ///INPUT:
-///Parameters: string choice[0] and choice[1] (NULL)
+///Parameters: string choice
 ///OUTPUT:   
-///Return Val: string choice[0] and choice[1] (with sorts selections)
-///CALLS TO:  menuErrorCheck, pickSorts (if error function recurses)
-///IMPLEMENTED BY: NATASHA
+///Return Val: string choice
+///CALLS TO:  menuErrorCheck, pickSorts
+///IMPLEMENTED BY: Mansfield
 ///////////////////////////////////////////////////////////////////////////////////
 void pickSorts(char& one,char& two){
   bool check;
@@ -164,6 +225,20 @@ void pickSorts(char& one,char& two){
   one = choice[0];
   two = choice[1];
 }
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION:	doSort()
+///  DESCRIPTION:  Calls functions with function pointer and runs a variety
+///                of sorts.
+///  INPUT:
+///  	Parameters: unsorted list[], char sort (user selection)
+///  OUTPUT:   
+///  	Return Val: returns timer which contains the run time of sorting
+///                 method.
+///  	Parameters: double timer
+///  CALLS TO:  mergeSort(), quickS(),insertionSort(), bubbleSort(), clockStop(),
+///             verifyARRAY().
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 double doSort(int list[],char sort){
   fP functionP;
   double timer = 0.0;
@@ -199,11 +274,11 @@ double doSort(int list[],char sort){
 ///FUNCTION:    menuErrorCheck
 ///DESCRIPTION: verifies user input for mistakes
 ///INPUT:
-///Parameters: string inChoice[0] and inChoice[1]
+///Parameters: string choice
 ///OUTPUT:   
-///Return Val: true of false if user submitted valid choices
+///Return Val: true of false if user submitted valid choice
 ///Parameters: bool check
-///IMPLEMENTED BY: JASON
+///IMPLEMENTED BY: Jason Mansfield
 ///////////////////////////////////////////////////////////////////////////////////
 bool menuErrorCheck(char choice)
 { bool check = false;
@@ -237,7 +312,7 @@ bool menuErrorCheck(char choice)
 ///OUTPUT:   
 ///Return Val: clock stop time minus start time giving total time of sort run
 ///CALLS TO: n/a
-///IMPLEMENTED BY: JASON
+///IMPLEMENTED BY: Jason Mansfield
 ///////////////////////////////////////////////////////////////////////////////////
 double clockStop(double start){
   double stop = clock();
@@ -246,6 +321,14 @@ double clockStop(double start){
   cout << fixed << "time " << time << endl;
   return time;
 }
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION: verifyARRAY()
+///  DESCRIPTION:   verifies that indexes above the below indexes is larger throughout
+///                 entire array; Otherwise a Warning message is given.
+///  INPUT:
+///  	Parameters: sorted list[]
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 void verifyARRAY(int list[]){
   bool ver = true;
   int invalid = 0;
@@ -267,6 +350,16 @@ void verifyARRAY(int list[]){
     cout << "WARNING!: " << invalid << " invalid matches." << endl;
   }
 }
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION: sortName()
+///  DESCRIPTION:  recieves user selected char and creates string named
+///                after choosen sort method.
+///  INPUT:
+///  	Parameters: char picked
+///  OUTPUT:   
+///  	Return Val: string name
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 string sortName(char picked){
 
   string name;
@@ -290,12 +383,35 @@ string sortName(char picked){
   return name;
 
 }
-///quicksort functions below
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION:	quickS()
+///  DESCRIPTION:  decrements length of array to be read from. This avoids 
+///                the quicksort from attempting to read past allocated memory. 
+///  INPUT:
+///  	Parameters: list array[] and indexes front and back.
+///  OUTPUT:   
+///  	Return Val: returns sorted array *array
+///  CALLS TO:  quickSort()
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 int quickS(int array[],int front,int back) 
 {
   quickSort(array, front, back - 1);
   return *array;
 }
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION:	quickSort()
+///  DESCRIPTION:   quickSort breaks the list up via pivot points and partitions
+///                 the array for a divide and conquer approach.
+///  INPUT:
+///  	Parameters: list index[] with current index in the front of
+///                 partition start while stop is the end of the partition.
+///  OUTPUT:   
+///  	Return Val: return sorted list index[] or recurse for furthur partitioning
+///                 and exchanges.
+///  CALLS TO:  exchange(), quickSort()
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 int quickSort(int index[], int start, int stop)
 {
   int front = start;                         
@@ -321,6 +437,16 @@ int quickSort(int index[], int start, int stop)
         
   return *index;
 }
+///////////////////////////////////////////////////////////////////////////
+///  FUNCTION:  insertionSort()
+///  DESCRIPTION:  a basic insertion sort algorithm which takes list and sorts
+///                it from less than to greatest.
+///  INPUT:
+///  	Parameters: int array list[] and index first and last.
+///  OUTPUT:   
+///  	Return Val: sorted int array list[]
+///  IMPLEMENTED BY: Jason Mansfield
+//////////////////////////////////////////////////////////////////////////
 int insertionSort(int list[],int first,int last){
   int current;
   int hold;
