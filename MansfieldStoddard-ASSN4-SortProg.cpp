@@ -40,9 +40,10 @@ string sortName(char);
 
 ///////////////////////////////////////////////////////////////////////////
 ///  FUNCTION: main()
-///  DESCRIPTION:   simple calls driver function.
+///  DESCRIPTION:   simple calls driver function and creates original arrays.
 ///  CALLS TO:  List of programmer-written functions called (names only)
 ///  IMPLEMENTED BY: Jason Mansfield
+///  CALLS TO: createArrays(), pickSorts(), driverFunction()
 //////////////////////////////////////////////////////////////////////////
 int main(){
   int list_I[MAX] = {0};
@@ -65,11 +66,10 @@ int main(){
 ///////////////////////////////////////////////////////////////////////////
 ///  FUNCTION: driverfunction()
 ///  DESCRIPTION:  the driverfunction handles creating of lists followed by 
-///                cycling them through functions which verify user input,
-///                select sort methods, perform selected sorts, timing of sorts,
+///                cycling through selected sorts, timing of sorts,
 ///                creating new random lists and selection from user of times in which 
 ///                to run.
-///  CALLS TO: createArrays(), pickSorts(), soSort(), driverFunction()
+///  CALLS TO: createArrays(), soSort()
 ///  IMPLEMENTED BY: Jason Mansfield
 //////////////////////////////////////////////////////////////////////////
 void driverFunction(int list_I[],int list_II[],char runOne,char runTwo){
