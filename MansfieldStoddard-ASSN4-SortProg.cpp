@@ -23,7 +23,7 @@ const int MAX = 100000;
 const int RAND = 30000;
 
 typedef int (*fP)(int [],int,int);
-void driverFunction();
+void driverFunction(int [],int [],char ,char );
 int bubbleSort(int [],int,int);
 int mergeSort(int [],int,int);
 int quickS(int [],int,int);
@@ -45,8 +45,17 @@ string sortName(char);
 ///  IMPLEMENTED BY: Jason Mansfield
 //////////////////////////////////////////////////////////////////////////
 int main(){
- 
-  driverFunction();
+  int list_I[MAX] = {0};
+  int list_II[MAX] = {0};
+  char runOne = '\0';
+  char runTwo = '\0';
+
+  while(runOne != 'E'){
+  createArrays(list_I,list_II);
+  //call pickSorts() to get a verify user choice
+  pickSorts(runOne,runTwo); 
+  driverFunction(list_I,list_II,runOne,runTwo);
+  }
 
 #ifdef _WIN32 
   system ("PAUSE");
@@ -63,21 +72,13 @@ int main(){
 ///  CALLS TO: createArrays(), pickSorts(), soSort(), driverFunction()
 ///  IMPLEMENTED BY: Jason Mansfield
 //////////////////////////////////////////////////////////////////////////
-void driverFunction(){
+void driverFunction(int list_I[],int list_II[],char runOne,char runTwo){
   int repeat = 0;
   int avg = 0;
-  char runOne = '\0';
-  char runTwo = '\0';
   double timeONE = 0.0;
   double timeTWO = 0.0;
   //create empty arrays
-  int list_I[MAX] = {0};
-  int list_II[MAX] = {0};
 
-
-  createArrays(list_I,list_II);
-  //call pickSorts() to get a verify user choice
-  pickSorts(runOne,runTwo);
   //call doSort which calls function pointers.
   cout << "Enter the number of times to repeat each sort (1 or more): " << endl;
   cin >> repeat;
@@ -103,7 +104,6 @@ void driverFunction(){
   system ("PAUSE");
 #endif
 
-  driverFunction();
 }
 ///////////////////////////////////////////////////////////////////////////
 ///  FUNCTION:  bubbleSort()
