@@ -94,9 +94,9 @@ void driverFunction(int list_I[],int list_II[],char runOne,char runTwo){
   }
   cout << "SORTING RESULTS" << endl;
   cout << "---------------" << endl;
-  cout << sortName(runOne) << setw(5) << "  " << timeONE/avg
+  cout << sortName(runOne) << setw(5)  << setprecision(2) << "  " << timeONE/avg
        << " clock ticks on average" << endl;
-  cout << sortName(runTwo) << setw(5) << "  " << timeTWO/avg
+  cout << sortName(runTwo) << setw(5) << setprecision(2) << "  " << timeTWO/avg
        << " clock ticks on average" << endl;
 
 
@@ -262,7 +262,7 @@ double doSort(int list[],char sort){
   }
   timer = clock();
   *list = (*functionP)(list,0,MAX);
-  clockStop(timer);
+  timer = clockStop(timer);
   verifyARRAY(list);
 
   return timer;
@@ -313,9 +313,9 @@ bool menuErrorCheck(char choice)
 ///////////////////////////////////////////////////////////////////////////////////
 double clockStop(double start){
   double stop = clock();
-  double time = ((double)(stop - start));
+  double time = difftime(stop,start);
   cout.precision(7);
-  cout << fixed << "time " << time << endl;
+  cout << fixed << "time " << setprecision(2) << time << endl;
   return time;
 }
 ///////////////////////////////////////////////////////////////////////////
